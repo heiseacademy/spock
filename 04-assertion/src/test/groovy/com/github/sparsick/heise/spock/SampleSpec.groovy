@@ -1,30 +1,49 @@
 package com.github.sparsick.heise.spock
 
-import spock.lang.Shared
+
 import spock.lang.Specification
 
 class SampleSpec extends Specification {
 
-    @Shared
-    def person
-
-    def setup() {
-        person = new Person("Tom", "Taylor", " Software Developer")
-    }
-
-
-    def "Teste Person nach seinem Vornamen"() {
+    def "Teste Person, ob sein Name richtig gesetzt ist" () {
         when:
-        def firstName = person.firstName
+        def person = new Person("Tom", "Taylor", " Software Developer")
         then:
-        firstName == "Tom"
+        person.firstName == "Tom"
+        person.lastName == "Taylor"
     }
 
-    def "Teste Person nach seinem Nachnamen"() {
+    def "Teste Person, ob sein Name richtig gesetzt ist mit helper method" () {
         when:
-        def lastName = person.lastName
+        def person = new Person("Tom", "Taylor", " Software Developer")
         then:
-        lastName == "Taylor"
+        matchName(person)
     }
+
+    def matchName(def person) {
+        assert person.firstName == "Tom"
+        assert person.lastName == "Taylor"
+    }
+
+    def "Teste Person, ob sein Name richtig gesetzt ist mit with" () {
+        when:
+        def person = new Person("Tom", "Taylor", " Software Developer")
+        then:
+        with(person) {
+            firstName == "Tom"
+            lastName == "Taylor"
+        }
+    }
+
+    def "Teste Person, ob sein Name richtig gesetzt ist mit veryAll" () {
+        when:
+        def person = new Person("Tom", "Taylor", " Software Developer")
+        then:
+        verifyAll (person) {
+            firstName == "Tom"
+            lastName == "Taylor"
+        }
+    }
+
 
 }
