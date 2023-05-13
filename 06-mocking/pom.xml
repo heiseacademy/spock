@@ -5,11 +5,11 @@
     <modelVersion>4.0.0</modelVersion>
 
     <groupId>com.github.sparsick.heise.spock</groupId>
-    <artifactId>06-mocking</artifactId>
+    <artifactId>06-mocking-stubbing</artifactId>
     <version>1.0.0-SNAPSHOT</version>
 
 
-    <name>06 - Mocking</name>
+    <name>06 - Mocking und Stubbing</name>
 
     <properties>
         <java.version>17</java.version>
