@@ -6,7 +6,7 @@ import spock.lang.Specification
 class DataSpec extends Specification {
 
     def "Data Table"(def expectedPosition, def direction) {
-        given:
+        given: "Position ist gegeben"
         def position = new Position(10,10)
 
         when:
